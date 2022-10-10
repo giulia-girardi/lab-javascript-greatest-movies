@@ -54,17 +54,16 @@ function orderByYear(moviesArray) {
             return a.year - b.year;
         } 
     })
-    console.log(sortedArr2)
+    //console.log(sortedArr2)
     return sortedArr2;
 }
 
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(moviesArray) {
-    const onlyTitles = moviesArray.map(movie => movie.title)
-    console.log(onlyTitles)
+    const onlyTitles = moviesArray.map(element => element.title)
     const onlyTitlesCopy = structuredClone(onlyTitles)
-    const orderedByTitle = onlyTitlesCopy.sort((a, b) => a.title > b.title);
+    const orderedByTitle = onlyTitlesCopy.sort((a, b) => a.localeCompare(b));
     //console.log(orderedByTitle)
     const first20Titles = orderedByTitle.splice(0, 20)
     //console.log(first20Titles)
