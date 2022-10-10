@@ -20,17 +20,27 @@ function scoresAverage(moviesArray) {
         return 0;
     }
     const onlyScoresArray = moviesArray.map(movie => movie.score)
-    console.log(onlyScoresArray)
+    //console.log(onlyScoresArray)
     const filteredScores = onlyScoresArray.filter(element => (element !== undefined))
-    console.log(filteredScores)
+    //console.log(filteredScores)
     const sumScores = filteredScores.reduce((previousValue, currentValue) => previousValue + currentValue);
     const avScore = Math.round((sumScores / moviesArray.length) * 100) /100
     return avScore
 }
+
     
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {
+    const onlyDrama = moviesArray.filter(oneMovie => (oneMovie.genre.includes("Drama")));
+    if (onlyDrama.length === 0) {
+        return 0;
+    }
+    console.log(onlyDrama)
+    const onlyDramaScores = onlyDrama.map(movie => movie.score)
+    const sumScores = onlyDramaScores.reduce((previousValue, currentValue) => previousValue + currentValue);
+    const avScore = Math.round((sumScores / onlyDrama.length) * 100) /100
+    return avScore
 
 }
 
