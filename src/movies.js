@@ -1,5 +1,7 @@
 // Iteration 1: All directors? - Get the array of all directors.
-// _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
+// _Bonus_: It eems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
+
+
 // How could you "clean" a bit this array and make it unified (without duplicates)?
 
 function getAllDirectors(moviesArray) {
@@ -73,7 +75,13 @@ function orderAlphabetically(moviesArray) {
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
-
+    const moviesArrayCopy = structuredClone(moviesArray)
+    for (let index = 0; index < moviesArrayCopy.length; index += 1) {
+        let hour = moviesArrayCopy[i].duration.split("h")[0];
+        let hourInMins = hour * 2
+        console.log(hourInMins)
+    }
+    return console.log(hour)
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
