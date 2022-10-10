@@ -36,7 +36,7 @@ function dramaMoviesScore(moviesArray) {
     if (onlyDrama.length === 0) {
         return 0;
     }
-    console.log(onlyDrama)
+    //console.log(onlyDrama)
     const onlyDramaScores = onlyDrama.map(movie => movie.score)
     const sumScores = onlyDramaScores.reduce((previousValue, currentValue) => previousValue + currentValue);
     const avScore = Math.round((sumScores / onlyDrama.length) * 100) /100
@@ -45,13 +45,37 @@ function dramaMoviesScore(moviesArray) {
 }
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
-function orderByYear(moviesArray) {}
+function orderByYear(moviesArray) {
+    const moviesArray2 = structuredClone(moviesArray);
+    const sortedArr2 = moviesArray2.sort((a, b) => {
+        if (a.year === b.year) {
+            return a.title.localeCompare(b.title)
+        } else {
+            return a.year - b.year;
+        } 
+    })
+    console.log(sortedArr2)
+    return sortedArr2;
+}
+
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(moviesArray) {}
+function orderAlphabetically(moviesArray) {
+    const onlyTitles = moviesArray.map(movie => movie.title)
+    console.log(onlyTitles)
+    const onlyTitlesCopy = structuredClone(onlyTitles)
+    const orderedByTitle = onlyTitlesCopy.sort((a, b) => a.title > b.title);
+    //console.log(orderedByTitle)
+    const first20Titles = orderedByTitle.splice(0, 20)
+    //console.log(first20Titles)
+    return first20Titles
+
+}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) {}
+function turnHoursToMinutes(moviesArray) {
+
+}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {}
